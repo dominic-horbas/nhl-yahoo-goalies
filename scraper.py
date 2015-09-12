@@ -10,8 +10,8 @@ def duckint(i):
         return i
 
 # Blank Python
-lookup = ['Name','GP','Wins','Shutouts', 'Avg', 'SVPct']
-num =    [0,2,8,26,18,24]
+lookup = ['Name','GP','Avg', 'SVPct', 'Shutouts']
+num =    [0,2,18,24,26]
 
 lstring = ', '.join(lookup)
 
@@ -29,6 +29,7 @@ for row in rows:
     cells=[cell.text_content().strip() for cell in row.xpath('td[@class="yspscores"]')]
     for i,n in enumerate(num):
         data[lookup[i]]=duckint(cells[n])
+    data['Wins']=duckint(row.xpath('descendant-or-self::span[@class="yspscores"]')[0].text_content().strip())
     builder.append(data)
     
 scraperwiki.sqlite.save(table_name='score', data=builder, unique_keys=['Name'])
