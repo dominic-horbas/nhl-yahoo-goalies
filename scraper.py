@@ -11,7 +11,7 @@ def duckint(i):
 
 # Blank Python
 lookup = ['Name','GP','Avg', 'SVPct', 'Shutouts']
-num =    [0,2,18,24,26]
+num =    [0,2,19,25,27]
 
 lstring = ', '.join(lookup)
 
