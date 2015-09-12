@@ -22,7 +22,7 @@ url='http://sports.yahoo.com/nhl/stats/byposition?pos=C,RW,LW,D&conference=NHL&y
 html=requests.get(url).content
 root=lxml.html.fromstring(html)
 
-rows=root.xpath('//table[@class="yspcontent"]//tr[@class="ysprow1" or @class="ysprow2"]')
+rows=root.xpath('//tr[@class="ysprow1" or @class="ysprow2"]')
 builder=[]
 for row in rows:
     data={}
