@@ -17,8 +17,8 @@ lstring = ', '.join(lookup)
 
 scraperwiki.sqlite.execute('create table if not exists score (%s)'%lstring)
 
-url='http://sports.yahoo.com/nhl/stats/byposition?pos=D'
-#url='http://sports.yahoo.com/nhl/stats/byposition?pos=C,RW,LW,D'
+#url='http://sports.yahoo.com/nhl/stats/byposition?pos=D'
+url='http://sports.yahoo.com/nhl/stats/byposition?pos=C,RW,LW,D&conference=NHL&year=season_2014&qualified=1'
 html=requests.get(url).content
 root=lxml.html.fromstring(html)
 
